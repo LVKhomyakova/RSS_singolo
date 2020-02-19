@@ -110,9 +110,12 @@ body{
     left: 425px;
 }
 .chev{
-    width: 13px;
-    height: 13px;
+    width: 19px;
+    height: 19px;
+    padding: 0;
     
+    background: none;
+    border: none;
     border-top: 6px solid #ca4549;
     border-left: 6px solid #ca4549;
     border-top-left-radius: 3px;
