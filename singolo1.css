@@ -76,9 +76,7 @@ body{
 .navigation__link:hover{
     color: #f06c64;
 }
-.navigation__link_colored{
-    color: #f06c64;
-}
+
 .dot{
     margin: 0 13px;
 
