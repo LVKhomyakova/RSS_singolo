@@ -510,7 +510,7 @@ body{
 }
 /*--------------------------------------------------------- Get a Quote */
 .get-a-quote{
-    padding: 59px 0 32px;
+    padding: 59px 0 30px;
     
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
@@ -586,7 +586,7 @@ body{
 
 .form-element[name="description"]{
     padding-top: 10px;
-    height: 190px;
+    height: 192px;
     resize: none;
 }
 .form-submit{
