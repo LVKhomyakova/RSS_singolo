@@ -1,5 +1,5 @@
 * Singolo.
-[https://lvkhomyakova.github.io/singolo/index.html](https://lvkhomyakova.github.io/singolo/index.html)
+[https://lvkhomyakova.github.io/singolo](https://lvkhomyakova.github.io/singolo)
 
 * Singolo. Part 1
 [https://lvkhomyakova.github.io/singolo/singolo1.html](https://lvkhomyakova.github.io/singolo/singolo1.html)
