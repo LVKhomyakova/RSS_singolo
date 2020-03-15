@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -15,11 +16,11 @@
                 </h1>
                 <nav class="header__navigation">
                     <ul class="navigation">
-                        <li><a class="navigation__link" href="#">home</a><span class="dot">&middot;</span></li>
-                        <li><a class="navigation__link" href="#">services</a><span class="dot">&middot;</span></li>
-                        <li><a class="navigation__link" href="#">portfolio</a><span class="dot">&middot;</span></li>
-                        <li><a class="navigation__link" href="#">about</a><span class="dot">&middot;</span></li>
-                        <li><a class="navigation__link" href="#">contact</a></li>
+                        <li><a class="navigation__link link_home active" href="#">home</a><span class="dot">&middot;</span></li>
+                        <li><a class="navigation__link link_services" href="#services">services</a><span class="dot">&middot;</span></li>
+                        <li><a class="navigation__link link_portfolio" href="#portfolio">portfolio</a><span class="dot">&middot;</span></li>
+                        <li><a class="navigation__link link_about" href="#about">about</a><span class="dot">&middot;</span></li>
+                        <li><a class="navigation__link link_contact" href="#contact">contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -27,11 +28,21 @@
     </header>
     <section class="slider">
         <button class="chev chev_left" type="button"></button>
-        <img class="phone_vertical" src="assets/images/phone-vertical.png" alt="Phone vertical" width="240px" height="484px">
-        <img class="phone_horizontal" src="assets/images/phone-horizontal.png" alt="Phone horizontal" width="484px" height="240px">
+        <div class="slide-area">
+            <div class="slide">
+                <label class="vert-phone" for="vert-phone"><input type="checkbox" id="vert-phone" checked></label>
+                <label class="horiz-phone" for="horiz-phone"><input type="checkbox" id="horiz-phone" checked></label>
+                <img class="interactive" src="assets/images/slider1.png" alt="Phone vertical and horizontal">
+            </div>
+            <div class="slide">
+                <img src="assets/images/slider2.png" alt="Three Phones">
+            </div>
+            <!-- <img class="phone_vertical" src="assets/images/phone-vertical.png" alt="Phone vertical" width="240px" height="484px"> -->
+            <!-- <img class="phone_horizontal" src="assets/images/phone-horizontal.png" alt="Phone horizontal" width="484px" height="240px"> -->
+        </div>
         <button class="chev chev_right" type="button"></button>
     </section>
-    <section class="our-services">
+    <section id="services" class="our-services">
         <div class="wrapper">
             <div class="our-services_layout">
                 <div class="our-services__introduction">
@@ -71,57 +82,57 @@
             </div>
         </div>
     </section>    
-    <section class="portfolio"> 
+    <section id="portfolio" class="portfolio"> 
         <div class="wrapper">
             <h2 class="portfolio__title">Portfolio</h2>
             <p class="portfolio__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
             <div class="portfolio__buttons">
-                <button class="button">All</button>
-                <button class="button">Web Design</button>
-                <button class="button">Graphic Design</button>
-                <button class="button">Artwork</button>
+                <button class="button button_all active-tab">All</button>
+                <button class="button button_web">Web Design</button>
+                <button class="button button_graphic">Graphic Design</button>
+                <button class="button button_artwork">Artwork</button>
             </div>
             <div class="layout-4-column">
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_all">
                     <img src="assets/images/project1.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_all">
                     <img src="assets/images/project2.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_all">
                     <img src="assets/images/project3.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_web">
                     <img src="assets/images/project4.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_web">
                     <img src="assets/images/project5.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_web">
                     <img src="assets/images/project6.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_graphic">
                     <img src="assets/images/project7.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_graphic">
                     <img src="assets/images/project8.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_graphic">
                     <img src="assets/images/project9.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_artwork">
                     <img src="assets/images/project10.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_artwork">
                     <img src="assets/images/project11.png" alt="Project image">
                 </figure>
-                <figure class="portfolio__image">
+                <figure class="portfolio__image image_artwork">
                     <img src="assets/images/project12.png" alt="Project image">
                 </figure>
             </div>
         </div>
     </section>
-    <section class="about-us">
+    <section id="about" class="about-us">
         <div class="wrapper">
             <h2 class="about-us__title">About Us</h2>
             <p class="about-us__text">Fusce dapibus, tellus ac cursus commodo, 
@@ -203,19 +214,19 @@
             </section>
         </div>
     </section>
-    <section class="get-a-quote"> 
+    <section id="contact" class="get-a-quote"> 
         <div class="wrapper">
             <h2 class="get-a-quote__title">Get a Quote</h2>
             <p class="get-a-quote__text">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. 
                 Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. 
                 Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <div class="layout-2-column">
-                <form class="get-a-quote__form" action method="GET">
-                    <input class="form-element" type="text" name="name" placeholder="Name (Required)" required>
-                    <input class="form-element" type="email" name="email" placeholder="Email (Required)" required>
-                    <input class="form-element" type="text" name="subject" placeholder="Subject">
-                    <textarea class="form-element" name="description" placeholder="Describe your project in detail..."></textarea>
-                    <input class="form-submit" type="submit" value="Submit">
+                <form class="get-a-quote__form" action method="POST">
+                    <input id="name" class="form-element" type="text" name="name" placeholder="Name (Required)" required>
+                    <input id="email" class="form-element" type="email" name="email" placeholder="Email (Required)" required>
+                    <input id="subject" class="form-element" type="text" name="subject" placeholder="Subject">
+                    <textarea id="description" class="form-element" name="description" placeholder="Describe your project in detail..." maxlength="1270"></textarea>
+                    <input id="submit" class="form-submit" type="submit" value="SEND">
                 </form>
                 <section class="get-a-quote__contacts">
                     <h3 class="contacts__title">Contact Information</h3>
