@@ -76,7 +76,9 @@ function changeSlide(event){
             slideArea.style.transitionDuration = '2s';
             currentOffsetLeft -= slideWidth;
             slideArea.style.marginLeft = currentOffsetLeft + 'px';
-            document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
+            setTimeout(function(){
+                document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
+            }, 2000);
         }, 0);   
     }
 
