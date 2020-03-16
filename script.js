@@ -50,6 +50,7 @@ function updateLink(event){
 // ------------------------Slider. Переключение слайдов-----------------------------
 document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
 const numberSlides = document.querySelectorAll('.slide').length;
+let currentOffsetLeft = 0;
 
 function changeSlide(event){
     var slides = document.querySelectorAll('.slide');
@@ -60,37 +61,46 @@ function changeSlide(event){
     var position =  parseInt(slideAreaStyles.left);
     
     if(event.target.classList.contains('chev_right')){
+        document.querySelectorAll('.chev').forEach( (slide) => slide.removeEventListener('click', changeSlide));
+        
         slideArea.prepend(slides[slides.length - 1].cloneNode(true));
         slides[slides.length - 1].remove();
         document.getElementById('vert-phone').addEventListener('change', switchPhone);
         document.getElementById('horiz-phone').addEventListener('change', switchPhone);
-
         
-        slideArea.style.marginLeft = '-' + slideWidth + 'px';
+        currentOffsetLeft += slideWidth;
+        slideArea.style.marginLeft = -currentOffsetLeft + 'px';
         slideArea.style.transitionDuration = '0s';
         
 		setTimeout(function() {
             slideArea.style.transitionDuration = '2s';
-            slideArea.style.marginLeft = '0px';
+            currentOffsetLeft -= slideWidth;
+            slideArea.style.marginLeft = currentOffsetLeft + 'px';
+            setTimeout(function(){
+                document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
+            }, 2000);
         }, 0);   
-    
     }
 
     if(event.target.classList.contains('chev_left')){
         slideArea.style.transitionDuration = '2s';
-        slideArea.style.marginLeft = '-' + slideWidth + 'px';
+        currentOffsetLeft += slideWidth;
+        slideArea.style.marginLeft = -currentOffsetLeft + 'px';
 
+        document.querySelectorAll('.chev').forEach( (slide) => slide.removeEventListener('click', changeSlide));
         setTimeout(function() {
+
             slideArea.append(slides[0].cloneNode(true));
             slides[0].remove();
             document.getElementById('vert-phone').addEventListener('change', switchPhone);
             document.getElementById('horiz-phone').addEventListener('change', switchPhone);
-            slideArea.style.marginLeft = '0px';
+            currentOffsetLeft -= slideWidth;
+            slideArea.style.marginLeft = currentOffsetLeft + 'px';
             slideArea.style.transitionDuration = '0s';
+            document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
         }, 2000);    
-    }
+    }   
 }
-
 
 // -----------------Slider. Активация экранов телефонов--------------------------
 document.getElementById('vert-phone').addEventListener('change', switchPhone);
