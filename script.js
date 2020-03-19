@@ -215,7 +215,6 @@ function onSubmit(event){
             document.querySelector('.errorMes2').remove();
 
     if(name.validity.valid && email.validity.valid){
-        
 
         let subjectText = subject.value ? `Тема: ${subject.value}` : 'Без темы';
         let descriptionText = description.value ? `Описание: ${description.value}` : 'Без описания';
@@ -241,13 +240,14 @@ function onSubmit(event){
             event.preventDefault();
             cover.remove();
             message.remove();
+            document.querySelector('.get-a-quote__form').reset();
         }
     }
     if(!name.validity.valid){
         if(!document.querySelector('.errorMes')){
 
             var errorMes = document.createElement('p');
-            errorMes.innerHTML = 'Поле не должно быть пустым!';
+            errorMes.innerHTML = 'Enter your name!';
             errorMes.classList.add('errorMes');
             document.querySelector('.get-a-quote__form').append(errorMes);
         }
@@ -256,10 +256,9 @@ function onSubmit(event){
         if(!document.querySelector('.errorMes2')){
 
             var errorMes2 = document.createElement('p');
-            errorMes2.innerHTML = 'Поле не должно быть пустым! Или неверный формат!';
+            errorMes2.innerHTML = `Enter your email in the correct format: must include latin letters and '@'!`;
             errorMes2.classList.add('errorMes2');
             document.querySelector('.get-a-quote__form').append(errorMes2);
         }
     }
-
 }
