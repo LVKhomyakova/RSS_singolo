@@ -28,25 +28,74 @@ function updateLink(event){
     navLink.forEach( (link) => link.classList.remove('active'));
     switch (true) {
         case pageYOffset >= 0 && pageYOffset < sliderTop:
-            document.querySelector('.link_home').classList.add('active');
+            addActiveClassForNavigationLink(document.querySelectorAll('.link_home'));
             break;
         case pageYOffset >= sliderTop && pageYOffset < servicesTop:
-            document.querySelector('.link_services').classList.add('active');
+            addActiveClassForNavigationLink(document.querySelectorAll('.link_services'));
             break;
         case pageYOffset >= servicesTop && pageYOffset < portfolioTop:
-            document.querySelector('.link_portfolio').classList.add('active');
+            addActiveClassForNavigationLink(document.querySelectorAll('.link_portfolio'));
             break;
         case pageYOffset >= portfolioTop && pageYOffset < aboutTop:
-            document.querySelector('.link_about').classList.add('active');
+            addActiveClassForNavigationLink(document.querySelectorAll('.link_about'));
             break;
         case pageYOffset >= aboutTop && pageYOffset < contactTop:
-            document.querySelector('.link_contact').classList.add('active');
+            addActiveClassForNavigationLink(document.querySelectorAll('.link_contact'));
             break;
         default:
             break;
     } 
 }
+function addActiveClassForNavigationLink(links){
+    links.forEach( (link) => link.classList.add('active'));
+}
+// -----------------------------Header. Mobile Menu----------------------------------
+document.querySelector('.burger-menu').addEventListener('click', clickBurgerMenu);
+document.querySelector('.cover-menu').addEventListener('click', clickBurgerMenu);
 
+function clickBurgerMenu(event){
+    if(document.querySelector('.rotate-burger')){ //menu is visible
+        rotateBurger();
+        hideMobileMenu();
+    }else{
+        rotateBurger();
+        showMobileMenu();
+    }
+}
+function rotateBurger(){
+    const burger = document.querySelector('.burger-menu');
+    if(burger.classList.contains('rotate-burger'))
+        burger.classList.remove('rotate-burger');
+    else
+        burger.classList.add('rotate-burger');
+}
+function showMobileMenu(){
+    document.querySelector('.mobile-menu').style.left = '0';
+    document.querySelector('.cover-menu').style.left = '72%';
+    scrollingOff();
+}
+function hideMobileMenu(){
+    document.querySelector('.mobile-menu').style.left = '-100%';
+    document.querySelector('.cover-menu').style.left = '100%';
+    scrollingOn();
+}
+function scrollingOff(){
+    document.querySelector('body').style.overflow = 'hidden';
+}
+function scrollingOn(){
+    document.querySelector('body').style.overflow = 'visible';
+}
+
+
+
+const media = window.matchMedia('(max-width: 767px)').addListener(onChangeMedia);
+function onChangeMedia(e){
+    const burger = document.querySelector('.burger-menu');
+    if (!e.matches) 
+        /* the viewport is more than than 767 pixels wide */
+        hideMobileMenu();
+        burger.classList.remove('rotate-burger');
+}
 // ------------------------Slider. Переключение слайдов-----------------------------
 document.querySelectorAll('.chev').forEach( (slide) => slide.addEventListener('click', changeSlide));
 const numberSlides = document.querySelectorAll('.slide').length;
@@ -215,6 +264,7 @@ function onSubmit(event){
             document.querySelector('.errorMes2').remove();
 
     if(name.validity.valid && email.validity.valid){
+        scrollingOff();
 
         let subjectText = subject.value ? `Тема: ${subject.value}` : 'Без темы';
         let descriptionText = description.value ? `Описание: ${description.value}` : 'Без описания';
@@ -241,6 +291,7 @@ function onSubmit(event){
             cover.remove();
             message.remove();
             document.querySelector('.get-a-quote__form').reset();
+            scrollingOn();
         }
     }
     if(!name.validity.valid){
@@ -256,9 +307,23 @@ function onSubmit(event){
         if(!document.querySelector('.errorMes2')){
 
             var errorMes2 = document.createElement('p');
-            errorMes2.innerHTML = `Enter your email in the correct format: must include latin letters and '@'!`;
+            errorMes2.innerHTML = `Enter your email! Email must include latin letters and '@'!`;
             errorMes2.classList.add('errorMes2');
             document.querySelector('.get-a-quote__form').append(errorMes2);
         }
     }
+}
+// ---------------------------------------------------------INPUT Validation---------
+document.getElementById('name').addEventListener('input', checkTextForms);
+document.getElementById('email').addEventListener('input', checkTextForms);
+
+function checkTextForms(){
+    var name = document.getElementById('name');
+    var email = document.getElementById('email');
+    if(name.validity.valid)
+        if(document.querySelector('.errorMes'))
+            document.querySelector('.errorMes').remove();
+    if(email.validity.valid)
+        if(document.querySelector('.errorMes2'))
+            document.querySelector('.errorMes2').remove();
 }
