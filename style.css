@@ -57,6 +57,7 @@ body{
     display: flex;
     justify-content: space-between;
 }
+
 .logo{
     margin-top: 29px;
     
@@ -101,6 +102,25 @@ body{
     margin: 0 13px;
     color: #494E62;
 }
+.burger-menu{
+    display: none;
+}
+.mobile-menu{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 74%;
+    height: 100%;
+
+    background: #2D303A;
+    box-shadow: 0px -40px 20px rgba(0, 0, 0, 0.4);
+
+    transition: 1s;
+}
+.cover-menu{
+    display: none;
+}
 /*------------------------------------------------------ Slider */
 .slider{
     position: relative;
@@ -135,24 +155,6 @@ body{
 #horiz-phone, #vert-phone{
     visibility: hidden;
 }
-/*
-.phone{
-    width: 484px;
-    height: 240px;
-
-    background-image: url("assets/images/phone-base.png");
-}
-
-.phone_vertical{
-    position: absolute;
-    top: 53px;
-    left: 112px;
-}
-.phone_horizontal{
-    position: absolute;
-    top: 174px;
-    left: 425px;
-}*/
 .slide-area{
     display: flex;
     position: relative;
@@ -574,12 +576,6 @@ body{
     text-align: center;
     line-height: 35px;
 }
-.test{
-    z-index: -999;
-}
-.test:hover{
-    cursor: pointer;
-}
 .social-icon:hover{
     transform: scale(1.1);
     cursor: pointer;
@@ -680,41 +676,26 @@ body{
 
     cursor: pointer;
 }
-.message{
-    position: fixed;
-    top: calc((100% - 100px) / 2);
-    left: calc((100% - 300px) / 2);
-    width: 300px;
-    padding: 10px 10px 40px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 2px 2px #886A30;
-    background-color: #FBC65F;
-    font-size: 1.4rem;
-    opacity: 1;
-    z-index: 9999;
-
-}
-.message>p{
-    display: block;
-    max-height: 205px;
-    word-wrap: break-word;
-    overflow: auto;
-}
-.message>button{
+.errorMes{
     position: absolute;
-    bottom: 10px;
+    top: -20px;
     left: 10px;
-    width: 50px;
-    height: 20px;
-    border: 0;
-    border-radius: 4px;
-    background-color: #886A30;
-
-    font-size: 1.4rem;
-    color: #f0d8d9;
-    cursor: pointer;
+    color: #886A30;
+    background: #FBC65F;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
-
+.errorMes2{
+    position: absolute;
+    top: 33px;
+    left: 10px;
+    color: #886A30;
+    background: #FBC65F;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
 .get-a-quote__contacts{
     width: 300px;
@@ -804,6 +785,54 @@ body{
     text-decoration: none;
     color: #f0d8d9;
 }
+
+/* ------------------------------------------modal */
+.message{
+    position: fixed;
+    top: calc((100% - 100px) / 2);
+    left: calc((100% - 300px) / 2);
+    width: 280px;
+    padding: 10px 10px 40px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px 2px #886A30;
+    background-color: #FBC65F;
+    font-size: 1.4rem;
+    opacity: 1;
+    z-index: 9999;
+
+}
+.message>p{
+    display: block;
+    max-height: 205px;
+    word-wrap: break-word;
+    overflow: auto;
+}
+.message>button{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 20px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #886A30;
+
+    font-size: 1.4rem;
+    color: #f0d8d9;
+    cursor: pointer;
+}
+.cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 0.3;
+}
+
+
 /* ----------------------------------------------------------Footer */
 .footer{
     padding: 0 40px;
@@ -864,31 +893,6 @@ body{
     background-repeat: no-repeat;
     background-size: 49%;
 }
-/* ----------------------------------------------------------------- */
-.cover{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9000;
-    width: 100%;
-    height: 1000px;
-    background-color: gray;
-    opacity: 0.3;
-}
-.errorMes{
-    position: absolute;
-    top: -33px;
-    left: 10px;
-    color: #f0d8d9;
-    font-size: 1.4rem;
-}
-.errorMes2{
-    position: absolute;
-    top: 23px;
-    left: 10px;
-    color: #f0d8d9;
-    font-size: 1.4rem;
-}
 /* ---------------------------------------------------------MEDIA */
 
 @media screen and (max-width: 1019px){
@@ -896,12 +900,105 @@ body{
         width: 100%;
     }
 }
-/* ---------------------------------------------------------media for HEADER */
-@media screen and (max-width: 1019px){
-}
 @media screen and (max-width: 767px){
+
+    .errorMes{
+        top: -15px;
+        left: 3px;
+        font-size: 1rem;
+    }
+    .errorMes2{
+        top: 35px;
+        left: 3px;
+        font-size: 1rem;
+    }
 }
-@media screen and (max-width: 374px){
+@media screen and (max-width: 319px){
+    .slide>img{
+        width: 320px !important;
+    }
+
+}
+
+/* ---------------------------------------------------------media for HEADER */
+@media screen and (max-width: 767px){
+    .header{
+        height: 71px;
+        border: none;
+        padding: 0 8px 0 20px;
+    }
+    
+    .header-layout{
+        justify-content: start;
+    }
+    .logo{
+        margin: 25px auto 0 auto;
+        font-size: 1.97rem;
+    }
+    .header__navigation{
+        display: none;
+    }
+    .burger-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        position: fixed;
+        top: 26px;
+        left: 20px;
+        width: 25px;
+        height: 20px;
+
+        transform: rotate(0deg);
+        transition: 1s;
+        cursor: pointer;
+        z-index: 30;
+    }
+    .burger-line{
+        width: 25px;
+        height: 2.4px;
+        border-radius: 5px;
+        background: #FFFFFF;
+    }
+    .rotate-burger{
+        transform: rotate(90deg);
+    }
+    #services, #portfolio, #about, #contact{
+        scroll-margin-top: 70px;
+    }
+}
+    /* ----------------------------------MOBILE MENU */
+@media screen and (max-width: 767px){
+
+    .mobile-menu>.logo{
+        margin-left: 71px;
+    }
+    .navigation{
+        width: 74%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 169px 0 0 71px;
+        list-style-type: none;   
+    }
+    .navigation__link{
+        font-size: 2.4rem;
+        line-height: 2.4em;
+        letter-spacing: -0.03em;
+    }
+    .cover-menu{
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        z-index: 9000;
+        width: 100%;
+        height: 100%;
+        background: #2D303A;
+        opacity: 0.6;   
+        transition: 1s; 
+    }
 }
 
 /* ---------------------------------------------------------media for SLIDER */
@@ -928,7 +1025,7 @@ body{
         border: none;
     }
 }
-@media screen and (max-width: 374px){
+@media screen and (max-width: 320px){
 }
 
 /* ---------------------------------------------------------media for OUR SERVICES */
@@ -1183,26 +1280,8 @@ body{
 @media screen and (max-width: 374px){
 }
 
-
 /* ---------------------------------------------------------media for FOOTER */
 @media screen and (max-width: 767px){
-    .header{
-        height: 71px;
-        border: none;
-    }
-    .logo{
-        margin: 24px 0 0 108px;
-        
-        font-size: 1.97rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        text-transform: uppercase;
-    }
-    
-    .header__navigation{
-        display: none;
-    }
-
     .copyright {
         display: none;
     }
