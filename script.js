@@ -53,6 +53,9 @@ function addActiveClassForNavigationLink(links){
 document.querySelector('.burger-menu').addEventListener('click', clickBurgerMenu);
 document.querySelector('.cover-menu').addEventListener('click', clickBurgerMenu);
 
+document.querySelector('.mobile-menu__navigation').addEventListener('click', clickBurgerMenu);
+ 
+
 function clickBurgerMenu(event){
     if(document.querySelector('.rotate-burger')){ //menu is visible
         rotateBurger();
