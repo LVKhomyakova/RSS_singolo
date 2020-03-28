@@ -1024,6 +1024,12 @@ body{
     .slider{
         border: none;
     }
+    .chev_left{
+        left: 3%;
+    }
+    .chev_right{
+        right: 3%;
+    }
 }
 
 /* ---------------------------------------------------------media for OUR SERVICES */
