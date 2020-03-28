@@ -54,7 +54,7 @@ document.querySelector('.burger-menu').addEventListener('click', clickBurgerMenu
 document.querySelector('.cover-menu').addEventListener('click', clickBurgerMenu);
 
 document.querySelector('.mobile-menu__navigation').addEventListener('click', clickBurgerMenu);
- 
+document.querySelector('.mobile-menu__logo').addEventListener('click', clickBurgerMenu);
 
 function clickBurgerMenu(event){
     if(document.querySelector('.rotate-burger')){ //menu is visible
@@ -226,7 +226,6 @@ function switchTab(event){
         projectsLayout.innerHTML = insertHTML;
     }
     document.querySelectorAll('.portfolio__image').forEach( project => project.addEventListener('click', switchBorder));
-    document.querySelectorAll('.portfolio__image').forEach( project => project.classList.remove('image_border'));
 }
 function getOuterHTML(elements){
     let outerHTML = '';
